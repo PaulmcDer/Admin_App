@@ -123,11 +123,12 @@ if not st.session_state.authenticated:
 secretarial_page = st.Page("views/secretarial.py", title="Secretarial To-Do", icon="🗂️")
 management_page = st.Page("views/management.py", title="Management To-Do", icon="📋")
 staff_page = st.Page("views/staff.py", title="Staff To-Do", icon="👩‍🏫")
+records_page = st.Page("views/all_records.py", title="Full Sheet Viewer", icon="📊")
 delete_page = st.Page("views/admin_manage.py", title="Manage & Delete", icon="🗑️")
 
 role = st.session_state.role
 if role == "Management":
-    allowed_pages = [management_page, secretarial_page, staff_page, delete_page]
+    allowed_pages = [management_page, secretarial_page, staff_page, records_page, delete_page]
 elif role == "Secretarial":
     allowed_pages = [secretarial_page]
 else:
