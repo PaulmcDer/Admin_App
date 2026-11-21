@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#1B5E20"              # Deep School Green (buttons, active tabs, focus rings)
+backgroundColor = "#F8FAFC"           # Soft off-white main workspace (easier on the eyes than harsh white)
+secondaryBackgroundColor = "#E8F5E9"  # Gentle sage-tinted sidebar & form backgrounds
+textColor = "#1E293B"                 # Crisp dark slate text
+font = "sans serif"
