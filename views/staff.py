@@ -6,12 +6,11 @@ SHEET_NAME = "Staff_ToDo"
 st.title("👩‍🏫 Staff To-Do List")
 
 # 1. Section to Add a New Staff Task
-with st.form("add_staff_task", clear_on_submit=True):
-    col1, col2 = st.columns([4, 1])
+with st.form("add_staff_task", clear_on_submit=True):  # (keep "add_secretarial_task" in secretarial.py)
+    col1, col2 = st.columns([4, 1], vertical_alignment="bottom")
     with col1:
         new_task = st.text_input("New Task Description", placeholder="e.g., Submit yard duty preferences for next term")
     with col2:
-        st.write("")  # Vertical spacer to align button with text input
         submitted = st.form_submit_button("➕ Add Task", type="primary", use_container_width=True)
 
     if submitted:

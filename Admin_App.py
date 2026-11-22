@@ -127,13 +127,12 @@ records_page = st.Page("views/all_records.py", title="Full Sheet Viewer", icon="
 delete_page = st.Page("views/admin_manage.py", title="Manage & Delete", icon="🗑️")
 
 role = st.session_state.role
-if role == "Management":
+if role in ["Principal", "Management"]:
     allowed_pages = [management_page, secretarial_page, staff_page, records_page, delete_page]
 elif role == "Secretarial":
     allowed_pages = [secretarial_page]
 else:
     allowed_pages = [staff_page]
-
 
 pg = st.navigation(allowed_pages)
 

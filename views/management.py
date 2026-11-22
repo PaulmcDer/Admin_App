@@ -8,13 +8,12 @@ st.title("📋 Management To-Do & Strategic Plans")
 
 # 1. Section to Add a New Management Plan
 with st.form("add_mgmt_task", clear_on_submit=True):
-    col1, col2, col3 = st.columns([3.5, 1.5, 1])
+    col1, col2, col3 = st.columns([3.5, 1.5, 1], vertical_alignment="bottom")
     with col1:
         new_task = st.text_input("Plan / Task Description", placeholder="e.g., Draft Board of Management term report")
     with col2:
         timeframe = st.selectbox("Timeframe", options=TIMEFRAMES)
     with col3:
-        st.write("")  # Vertical spacer
         submitted = st.form_submit_button("➕ Add Plan", type="primary", use_container_width=True)
 
     if submitted:

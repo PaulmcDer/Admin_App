@@ -13,12 +13,22 @@ def get_spreadsheet():
 
 @st.cache_data(ttl=15)
 def load_users() -> pd.DataFrame:
-    """Fetch all rows from the Users tab as a DataFrame."""
+    """Fetch all rows from the Users tab as a DataFrame with row tracking."""
     sh = get_spreadsheet()
     worksheet = sh.worksheet("Users")
     records = worksheet.get_all_records()
+    df = pd.DataFrame(records)
+    if not df.empty:
+        df["sheet_row"] = range(2, len(df) + 2)
+    return df
+
+def update_user_pin(sheet_row: int, new_pin: str):
+    """Update a user's PIN in Column B (Col 2) as plain text and clear cache."""
+    sh = get_spreadsheet()
+    worksheet = sh.worksheet("Users")
+    # Prefixing with an apostrophe forces Google Sheets to store leading zeros (e.g. '0123)
+    worksheet.update_cell(sheet_row, 2, f"'{new_pin.strip()}")
     st.cache_data.clear()
-    return pd.DataFrame(records)
 
 @st.cache_data(ttl=15)
 def load_tasks(sheet_name: str) -> pd.DataFrame:
