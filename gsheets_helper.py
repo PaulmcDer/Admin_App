@@ -43,12 +43,15 @@ def load_tasks(sheet_name: str) -> pd.DataFrame:
     return df
 
 
-def add_task(sheet_name: str, description: str, added_by: str):
-    """Append a new Pending task row to the bottom of the sheet."""
+def add_task(sheet_name: str, description: str, added_by: str, task_type: str = "To-Do", due_date: str = ""):
+    """Append a new Pending task or invoice row to the bottom of the sheet."""
     sh = get_spreadsheet()
     worksheet = sh.worksheet(sheet_name)
     today_str = date.today().strftime("%d/%m/%Y")
-    worksheet.append_row([today_str, description.strip(), "Pending", added_by])
+    if sheet_name == "Secretarial_ToDo":
+        worksheet.append_row([today_str, description.strip(), "Pending", added_by, task_type, due_date])
+    else:
+        worksheet.append_row([today_str, description.strip(), "Pending", added_by])
     st.cache_data.clear()
 
 def mark_task_complete(sheet_name: str, sheet_row: int, status_col: int = 3):
