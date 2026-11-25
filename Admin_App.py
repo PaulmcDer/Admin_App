@@ -43,6 +43,13 @@ def load_custom_css():
                 padding-left: 0.8rem;
                 padding-right: 0.8rem;
             }
+            h1 {
+                font-size: 1.55rem !important;
+                line-height: 1.25 !important;
+            }
+            h2, h3 {
+                font-size: 1.2rem !important;
+            }
             div[data-testid="stForm"] {
                 padding: 1rem;
             }
@@ -54,7 +61,6 @@ def load_custom_css():
         /* Hide the Deploy button and developer menu on BOTH desktop and mobile */
         .stAppDeployButton { display: none; }
         #MainMenu { visibility: hidden; }
-
         </style>
         """,
         unsafe_allow_html=True,
