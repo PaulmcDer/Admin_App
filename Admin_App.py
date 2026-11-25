@@ -39,13 +39,14 @@ def load_custom_css():
         /* Mobile-specific adjustments (phones & small tablets) */
         @media (max-width: 640px) {
             .block-container {
-                padding-top: 1rem;
+                padding-top: 3.2rem;
                 padding-left: 0.8rem;
                 padding-right: 0.8rem;
             }
             h1 {
                 font-size: 1.55rem !important;
                 line-height: 1.25 !important;
+                padding-top: 0.3rem !important;
             }
             h2, h3 {
                 font-size: 1.2rem !important;
